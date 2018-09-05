@@ -143,6 +143,10 @@ document.addEventListener('DOMContentLoaded', function() {
     TweenLite.to(window, 1.25, {scrollTo:{y:'#contactForm', offsetY:54, x:0}, ease: Circ.easeOut});
   });
   if (window.innerWidth > 768) {
+    $('#teamMore').on('click', function(e) {
+      e.preventDefault();
+      TweenLite.to(window, 1.25, {scrollTo:{y:'#team', offsetY:64, x:0}, ease: Circ.easeOut});
+    });
     $('#nav-logo').on('mouseenter', function() {
       TweenMax.to(this, .5, {scale: .9, force3D:true, ease: Circ.easeOut});
     });
@@ -158,6 +162,14 @@ document.addEventListener('DOMContentLoaded', function() {
       TweenLite.to(window, 1.25, {scrollTo:{y:'#team', offsetY:64, x:0}, ease: Circ.easeOut});
     });
   } else {
+    $('#sidenavLogo').on('click', function(e) {
+      e.preventDefault();
+      TweenLite.to(window, 1.25, {scrollTo:{y:0, x:0}, ease: Circ.easeOut});
+    });
+    $('#teamMore').on('click', function(e) {
+      e.preventDefault();
+      TweenLite.to(window, 1.25, {scrollTo:{y:'#team', offsetY:54, x:0}, ease: Circ.easeOut});
+    });
     TweenMax.set('#nav-logo', {autoAlpha:0, visibility:"hidden"});
     $('.side-nav-logo').on('click', function(e) {
       e.preventDefault();

@@ -383,7 +383,7 @@
 	</div>
 	<div class="row container margin-top-4">
 		<div class="col s12 center-align">
-			<a class="waves-effect btn-large btn-flat" href="#"><i class="small material-icons left">more</i>read more</a>
+			<a id="teamMore" class="waves-effect btn-large btn-flat" href="#"><i class="small material-icons left">more</i>read more</a>
 		</div>
 	</div>
 </div>

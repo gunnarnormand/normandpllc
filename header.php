@@ -35,7 +35,7 @@
 					  ?>
 						<ul id="slide-out" class="sidenav">
 							<h4 class="side-nav-logo">
-								<img class="logo" src="<?php echo get_field('secondary_logo', 'option') ?>" alt="logo">
+								<img id="sidenavLogo" class="logo" src="<?php echo get_field('secondary_logo', 'option') ?>" alt="logo">
 							</h4>
               <?php
   							wp_nav_menu(array(
