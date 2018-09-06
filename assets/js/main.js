@@ -1,7 +1,7 @@
-// front page animations module
 var FrontPageAnimationsModule = function () {
   var $scrollContainer = document.querySelector('.scroll-container');
   function frontPageLoadingAnimation() {
+    // for testing MorphSVG Paths
     // findShapeIndex("#", "#");
     MorphSVGPlugin.convertToPath("#polyFirst");
     MorphSVGPlugin.convertToPath("#polySecond");
@@ -25,10 +25,8 @@ var FrontPageAnimationsModule = function () {
 
     $(window).scroll(function () {
       if ($(this).scrollTop() <= 64) {
-        // console.log('show scroll indicator!');
         TweenMax.to('.scroll-indicator-wrap', .25, { opacity: 1, ease: Circ.easeOut });
       } else {
-        // console.log('go away scroll indicator!');
         TweenMax.to('.scroll-indicator-wrap', .25, { opacity: 0, ease: Circ.easeOut });
       }
     });
@@ -53,7 +51,7 @@ var FrontPageAnimationsModule = function () {
         if (tl.progress() == 0) {
           TweenMax.set('#arrow', { opacity: 0 });
         } else if (tl.progress() <= .25) {
-          // console.log(tl.progress() )
+          //console.log(tl.progress() )
           TweenMax.set('#arrow', { opacity: 1 });
         } else {
           TweenMax.set('#arrow', { opacity: 0 });
@@ -74,7 +72,7 @@ var FrontPageAnimationsModule = function () {
         if (tlSmall.progress() == 0) {
           TweenMax.set('#arrow', { opacity: 0 });
         } else if (tlSmall.progress() <= .25) {
-          // console.log(tl.progress() )
+          //console.log(tl.progress() )
           TweenMax.set('#arrow', { opacity: 1 });
         } else {
           TweenMax.set('#arrow', { opacity: 0 });
@@ -137,47 +135,48 @@ jQuery(document).ready(function($) {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  // ScrollTo
+  // nav animation
+  $('#nav-logo').on('mouseenter', function() {
+    TweenMax.to(this, .5, {scale: .9, force3D:true, ease: Circ.easeOut});
+  });
+  $('#nav-logo').on('mouseleave', function() {
+    TweenMax.to(this, .5, {scale: 1, force3D:true, ease: Circ.easeOut});
+  });
+  // ScrollTo animations
   $('.cta-btn').on('click', function(e) {
     e.preventDefault();
-    TweenLite.to(window, 1.25, {scrollTo:{y:'#contactForm', offsetY:54, x:0}, ease: Circ.easeOut});
+    TweenLite.to(window, 1.25, {scrollTo:{y:'#contactForm', offsetY:54, x:0, autoKill:false}, ease: Circ.easeOut});
   });
   if (window.innerWidth > 768) {
     $('#teamMore').on('click', function(e) {
       e.preventDefault();
-      TweenLite.to(window, 1.25, {scrollTo:{y:'#team', offsetY:64, x:0}, ease: Circ.easeOut});
-    });
-    $('#nav-logo').on('mouseenter', function() {
-      TweenMax.to(this, .5, {scale: .9, force3D:true, ease: Circ.easeOut});
-    });
-    $('#nav-logo').on('mouseleave', function() {
-      TweenMax.to(this, .5, {scale: 1, force3D:true, ease: Circ.easeOut});
+      TweenLite.to(window, 1.25, {scrollTo:{y:'#team', offsetY:64, x:0, autoKill:false}, ease: Circ.easeOut});
     });
     $('#nav-logo').on('click', function(e) {
       e.preventDefault();
-      TweenLite.to(window, 1.25, {scrollTo:{y:0, x:0}, ease: Circ.easeOut});
+      TweenLite.to(window, 1.25, {scrollTo:{y:0, x:0, autoKill:false}, ease: Circ.easeOut});
     });
     $('.our-team-nav').on('click', function(e) {
       e.preventDefault();
-      TweenLite.to(window, 1.25, {scrollTo:{y:'#team', offsetY:64, x:0}, ease: Circ.easeOut});
+      TweenLite.to(window, 1.25, {scrollTo:{y:'#team', offsetY:64, x:0, autoKill:false}, ease: Circ.easeOut});
     });
   } else {
     $('#sidenavLogo').on('click', function(e) {
       e.preventDefault();
-      TweenLite.to(window, 1.25, {scrollTo:{y:0, x:0}, ease: Circ.easeOut});
+      TweenLite.to(window, 1.25, {scrollTo:{y:0, x:0, autoKill:false}, ease: Circ.easeOut});
     });
     $('#teamMore').on('click', function(e) {
       e.preventDefault();
-      TweenLite.to(window, 1.25, {scrollTo:{y:'#team', offsetY:54, x:0}, ease: Circ.easeOut});
+      TweenLite.to(window, 1.25, {scrollTo:{y:'#team', offsetY:54, x:0, autoKill:false}, ease: Circ.easeOut});
     });
     TweenMax.set('#nav-logo', {autoAlpha:0, visibility:"hidden"});
     $('.side-nav-logo').on('click', function(e) {
       e.preventDefault();
-      TweenLite.to(window, 1.25, {scrollTo:{y:0, x:0}, ease: Circ.easeOut});
+      TweenLite.to(window, 1.25, {scrollTo:{y:0, x:0, autoKill:false}, ease: Circ.easeOut});
     });
     $('.our-team-nav').on('click', function(e) {
       e.preventDefault();
-      TweenLite.to(window, 1.25, {scrollTo:{y:'#team', offsetY:54, x:0}, ease: Circ.easeOut});
+      TweenLite.to(window, 1.25, {scrollTo:{y:'#team', offsetY:54, x:0, autoKill:false}, ease: Circ.easeOut});
     });
   }
   FrontPageAnimationsModule.init();
@@ -215,7 +214,6 @@ document.addEventListener('DOMContentLoaded', function() {
       TweenMax.to('.linkedin', .25, { scale: 1, opacity: 0.6, ease: Back.easeOut.config(2) });
     });
   });
-  //fade in targets
   var $fadeInTarget = document.querySelectorAll(".fade-in-target");
   for (var i = 0; i < $fadeInTarget.length; i++) {
     new Waypoint({
